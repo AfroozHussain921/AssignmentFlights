@@ -1,0 +1,105 @@
+﻿@using Assignment_Flightss;
+@model IList<Flightdb>
+@{
+    ViewBag.Title = "Flights";
+}
+
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-12">
+        <h2>FLIGHT LIST</h2>
+    </div>
+    <div class="col-md-12">
+        <a class="btn btn-primary pull-right" onclick="TATAeditor.opentataEditor()">
+            Add Flight
+        </a>
+    </div>
+    <div class="col-md-12" style="margin-top: 15px">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>FlightID</th>
+                    <th>Nameofflight</th>
+                    <th>Model</th>
+                    <th>Company</th>
+                
+                </tr>
+            </thead>
+            <tbody id ="tbody-Flight-list">
+                @if (Model != null && Model.Count > 0)
+                {
+                    foreach (Flightdb flight in Model)
+                    {
+                      @Html.Partial("_Flights" , flights)
+                            
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<div id="flight-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">FLIGHT DETAILS</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="passenger-modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="PassengerID">PassengerID</label>
+                                <input type="number" class="form-control" id="PassengerID" aria-describedby="PassengerID" placeholder="Enter ID">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="FlightID">FlightID</label>
+                                <input type="number" class="form-control" id="FlightID" aria-describedby="FlightID" placeholder="Enter FlightID">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Nameofflight">Nameofflight</label>
+                                <input type="text" class="form-control" id="Nameofflight" aria-describedby="Nameofflight" placeholder="Enter Nameofflight">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Model">Model</label>
+                                <input  id="Model" class="form-control" aria-describedby="Model" placeholder="Enter Model">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Company">Company</label>
+                                <input id="Company" class="form-control" aria-describedby="Company" placeholder="Enter Company">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a  class="btn btn-primary" onclick="TATAeditor.saveTATA()" id="lnkSubmitDetails">Submit </a>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="Result" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

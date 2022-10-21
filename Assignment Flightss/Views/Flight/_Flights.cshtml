@@ -1,0 +1,27 @@
+﻿@using Assignment_Flightss;
+@model Flightdb
+  <tr id = "tr_@Model.FlightID">
+      
+
+         
+         <td>@Model.FlightID</td>         
+         <td>@Model.Nameofflight</td>
+         <td>@Model.Model</td>
+         <td>@Model.Company</td>
+        
+       
+       
+         <td>
+          <a class="btn btn-primary" > 
+          <span class="glyphicon glyphicon-edit"  aria-hidden="true"></span>
+           Edit
+          </a>
+          <a class="btn btn-danger"> 
+          <span class="glyphicon glyphicon-remove"  aria-hidden="true"> </span>
+           Delete</a>
+       
+         </td> 
+                         
+  </tr>
+
+
